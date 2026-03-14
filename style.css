@@ -1,0 +1,77 @@
+:root {
+    --ana-renk: #0f2027;
+    --ikincil-renk: #2c5364;
+}
+
+body, html {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    overflow: hidden; font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white; text-align: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.particle {
+    position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.2);
+    bottom: -50px; animation: float 10s infinite linear; z-index: 0;
+}
+
+@keyframes float { to { transform: translateY(-110vh) translateX(20px); opacity: 0; } }
+
+#giris-ekrani {
+    position: fixed; z-index: 100; background: rgba(0, 0, 0, 0.9);
+    width: 100%; height: 100%; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+}
+
+.buton {
+    padding: 18px 45px; font-size: 1.1rem; background: transparent;
+    border: 1px solid rgba(255,255,255,0.5); color: white; border-radius: 50px;
+    cursor: pointer; transition: 0.5s; backdrop-filter: blur(5px);
+    text-transform: uppercase; letter-spacing: 2px;
+}
+
+#ana-icerik {
+    display: none; width: 85%; max-width: 400px; z-index: 10;
+    animation: slideUp 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mesaj-kutusu {
+    padding: 25px; background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px); border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 20px;
+}
+
+.music-player {
+    display: flex; align-items: center; padding: 15px;
+    background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px);
+    border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: left;
+}
+
+.album-art {
+    width: 60px; height: 60px; border-radius: 12px;
+    background: url('https://img.youtube.com/vi/XCEN5wy-RDs/0.jpg') center/cover;
+    margin-right: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.song-info { flex-grow: 1; }
+.song-title { font-size: 0.9rem; font-weight: bold; margin: 0; }
+.artist-name { font-size: 0.8rem; opacity: 0.7; margin: 2px 0 0 0; }
+
+.controls { cursor: pointer; padding: 10px; }
+.play-pause-icon { width: 30px; height: 30px; fill: white; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+h1 { font-weight: 300; font-size: 1.4rem; margin-bottom: 10px; }
+p { font-weight: 300; font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.8); }
+#video-container { position: absolute; left: -999px; top: -999px; }
